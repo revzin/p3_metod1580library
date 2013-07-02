@@ -1,0 +1,156 @@
+% -*- coding: ACP -*- 
+
+\usepackage[russian]{babel} 
+\usepackage[T2A]{fontenc} 
+\usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 2cm, bottom = 2cm]{geometry} 
+
+
+\usepackage{amstext} % Для формул 
+\usepackage{amsmath} % Для формул 
+\usepackage{amssymb}
+
+\usepackage{icomma} % Десятичная запятая вместо точки 
+\usepackage{graphicx} % Вставка рисунков 
+\usepackage{url} % Внедрение ссылок в PDF
+\usepackage{dtklogos} % Разные логотипы (MiKTeX в частности) 
+\usepackage{indentfirst}
+\usepackage{array} % Таблички
+ 
+
+\usepackage{textcomp}
+\usepackage{moresize}
+
+\usepackage{ccaption} 
+% "Рис. 1. Бла-бла." -> "Рисунок 1 --- Бла-бла." ГОСТ 
+
+%\usepackage[nooneline]{caption}
+\addto\captionsrussian{ \def\figurename{Рисунок} }
+\addto\captionsrussian{ \def\tablename{Таблица} } 
+\captiondelim{~---~} 
+\captionstyle{\raggedright}
+\captionwidth{0.8\linewidth}
+
+%%% Убираем точки после цифр в заголовках
+\def\russian@capsformat{%
+  \def\postchapter{\@aftersepkern}%
+  \def\postsection{\@aftersepkern}%
+  \def\postsubsection{\@aftersepkern}%
+  \def\postsubsubsection{\@aftersepkern}%
+  \def\postparagraph{\@aftersepkern}%
+  \def\postsubparagraph{\@aftersepkern}%
+}
+
+%\let\stdsection\section
+%\renewcommand\section{\newpage\stdsection} % Разделы с новых страниц
+
+\makeatletter
+\renewcommand\thesubsection{\ifnum\c@section=0{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi}
+\makeatother % Во "введениях" нумерация через В. 1, В. 2
+
+
+% Команды оформления титульников 
+\newcommand{\VMTDAuthors}{<Авторы/составители>}
+\newcommand{\VMTDEditorsGenetiveCase}{<Редакторы в родительном падеже>}
+\newcommand{\VMTDTeXguys}{<Верстали в род. падеже>}
+
+\newcommand{\VMTDLyceum}{Специализированный учебно-научный центр\\ Физико-математический лицей \textnumero 1580}
+\newcommand{\VMTDUni}{Московский государственный  технический университет имени~Н.~Э.~Баумана}
+\newcommand{\VMTDDept}{Кафедра <<Основы физики>>}
+
+\newcommand{\VMTDGlobalName}{Лабораторный практикум по физике}
+\newcommand{\VMTDPhysSection}{\MakeUppercase{MTDSetPhysSection}}
+\newcommand{\VMTDTitle}{MTDSetTitle} 
+\newcommand{\VMTDGrade}{MTDSetGrade класс}
+\newcommand{\VMTDLabDesignator}{MTDDesignator}
+
+
+\newcommand{\VMTDYear}{2013}
+
+\newcommand{\MTDSetAuthors}[1]{\renewcommand{\VMTDAuthors}{#1}}
+\newcommand{\MTDSetEditorsGenCase}[1]{\renewcommand{\VMTDEditorsGenetiveCase}{#1}}
+
+\newcommand{\MTDSetTitle}[1]{\renewcommand{\VMTDTitle}{#1}}
+\newcommand{\MTDSetPhysSection}[1]{\renewcommand{\VMTDPhysSection}{\MakeUppercase{#1}}}
+\newcommand{\MTDSetGrade}[1]{\renewcommand{\VMTDGrade}{#1 класс}}
+\newcommand{\MTDDesignator}[1]{\renewcommand{\VMTDLabDesignator}{#1}}
+\newcommand{\MTDSetTeXguys}[1]{\renewcommand{\VMTDTeXguys}{#1}}
+
+
+% прочее
+
+\newcommand{\MTDWarn}[1]{
+\vspace{0.75cm}
+\noindent
+\begin{tabular}{ >{\centering\arraybackslash} m{0.1\textwidth} >{\centering\arraybackslash} m{0.85\textwidth} }
+\hline \hline
+\vphantom{\tiny 1}\ {\HUGE !}  & \normalsize \textbf{#1} \\
+\hline \hline
+\end{tabular}
+\vspace{0.75cm}\newline
+}
+
+% среднее
+\newcommand{\MTDMean}[1]{\ensuremath{\left<#1\right}>}
+
+
+%Титульник
+\newcommand{\MTDTitlePage}{
+ \begin{titlepage}
+ \begin{center}
+  \large \VMTDUni \\ \vspace{0.5cm} 
+  \VMTDLyceum \\ 
+  \vspace{0.5cm} 
+  \VMTDDept\\
+  \vspace{3cm}
+  \LARGE \VMTDGlobalName \\ Электронное издание \\ \LARGE \VMTDGrade \\ \vspace{1.25cm}
+  \Huge \VMTDPhysSection \\ \vspace{1.5cm} \
+  \LARGE Лабораторная работа \fbox{\VMTDLabDesignator} \\
+  \huge \VMTDTitle
+  \vfill
+  \normalsize Москва, \VMTDYear
+ \end{center}
+ \newpage
+\end{titlepage}
+}
+
+\usepackage[strict]{changepage}
+\newcommand{\MTDInfoPage}{
+  \begin{adjustwidth}{2cm}{2cm}
+    \indent\VMTDGlobalName. \VMTDPhysSection. --- \VMTDUni
+    \vspace{0.5cm}
+    
+    Лабораторный практикум по физике для 10 класса состоит из лабораторных 
+    работ для занятий учащихся 10 классов в Специализированном учебно-научном 
+    центре МГТУ имени Н.Э. Баумана.
+    Лабораторные работы, приведенные в сборнике, позволят учащимся глубже изучить 
+    законы физики и получить навыки проведения экспериментальных физических исследований.
+   
+   \vfill
+   \centering
+   \noindent Составители лабораторных работ: \\
+   \begin{tabular}{|>{\centering\arraybackslash} m{0.9\linewidth}|}
+   \hline
+   \hyphenpenalty = 10000
+   \VMTDAuthors. \\
+   \hline
+   \end{tabular}
+   \vspace{1cm}
+   
+   \noindent Под редакцией \VMTDEditorsGenetiveCase.
+   \vspace{2cm}
+   
+   Электронное издание в системе \MiKTeX\ подготовили \\
+   \VMTDTeXguys.
+   \vspace{3cm}
+ \end{adjustwidth} 
+   \newpage
+}
+
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+
+
+
+\graphicspath{ {../figures/} }
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+
