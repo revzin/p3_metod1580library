@@ -107,7 +107,7 @@
   \LARGE Лабораторная работа \fbox{\VMTDLabDesignator} \\
   \huge \VMTDTitle
   \vfill
-  \normalsize Москва, \VMTDYear
+  \Large Москва, \VMTDYear
  \end{center}
  \newpage
 \end{titlepage}
@@ -116,6 +116,9 @@
 \usepackage[strict]{changepage}
 \newcommand{\MTDInfoPage}{
   \begin{adjustwidth}{2cm}{2cm}
+    \phantom{1}
+    \vspace{8cm}
+  
     \indent\VMTDGlobalName. \VMTDPhysSection. --- \VMTDUni
     \vspace{0.5cm}
     
@@ -128,11 +131,9 @@
    \vfill
    \centering
    \noindent Составители лабораторных работ: \\
-   \begin{tabular}{|>{\centering\arraybackslash} m{0.9\linewidth}|}
-   \hline
+   \begin{tabular}{>{\centering\arraybackslash} m{0.9\linewidth}}
    \hyphenpenalty = 10000
    \VMTDAuthors. \\
-   \hline
    \end{tabular}
    \vspace{1cm}
    
