@@ -18,6 +18,8 @@ class ButtonsFrame(Frame):
         self.copy_button.pack()
         
 
+
+
 def copy_to_clipboard():
     root.clipboard_clear()
     txt = text2.get('1.0', END)
@@ -26,9 +28,29 @@ def copy_to_clipboard():
 def process_text(event = None):
     txt = text1.get('1.0', END)
     new_txt = delete_newlines_and_dashes(txt)
+    new_txt = preprocess_sym(new_txt)
     text2.delete('1.0', END)
     text2.insert('1.0', new_txt)
     
+def preprocess_sym(txt):
+    for i in range(0, len(txt)):
+        if (txt[i] == '-' or txt[i] == '–'):
+            if (txt[i - 1] == ' ' and txt[i + 1] == ' '):
+               txt = txt[:i - 1] + ' --- ' + txt[i + 1:]
+    for i in range(0, len(txt)):
+        if txt[i] == '№': #textcomp package
+            txt = txt[:i] + '\\textnumero' +  txt[i + 1:]
+
+    cnt = 0 # Четная - открываюшая
+    for i in range(0, len(txt)):
+        if txt[i] == '"' or txt[i] == '“' or txt[i] == '”':
+            cnt += 1
+            if cnt % 2 == 1:
+                txt = txt[:i] + '<<' + txt[i + 1:]
+            else:
+                txt = txt[:i] + '>>' + txt[i + 1:]
+    return txt        
+
 def delete_newlines_and_dashes(txt):
     new_txt = ''
     prev_ind = 0
@@ -51,8 +73,8 @@ def delete_newlines_and_dashes(txt):
 root = Tk()
 root.title('tex_dash.pyw')
 
-text1 = ScrolledText(root, height = 10, width = 90, font = 'Arial 14', wrap = WORD)
-text2 = ScrolledText(root, height = 10, width = 90, font = 'Arial 14', wrap = WORD)
+text1 = ScrolledText(root, height = 10, width = 90, font = 'Consolas 10', wrap = WORD)
+text2 = ScrolledText(root, height = 10, width = 90, font = 'Consolas 10', wrap = WORD)
 
 text1.bind('<Control-d>', process_text)
 
