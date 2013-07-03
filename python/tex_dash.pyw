@@ -21,10 +21,10 @@ class ButtonsFrame(Frame):
         self.clear_all_button.pack()
         
 
-def clear_all():
+def clear_all(event = None):
     text1.delete('1.0', END)
 
-def copy_to_clipboard():
+def copy_to_clipboard(event = None):
     root.clipboard_clear()
     txt = text2.get('1.0', END)
     root.clipboard_append(txt)
