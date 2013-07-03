@@ -50,12 +50,17 @@
 
 %\numberwithin{equation}{section}
 
-\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\usepackage{chngcntr}
+% Во введении (а введение - это section с номером 0) - формулы нумеруются так: (Вэ.N), дальше (M.N).
+\counterwithin{equation}{section} % Чтобы N сбрасывалась на смене section
+\renewcommand{\theequation}{\ifnum\c@section=0{В.\arabic{equation}}\else{\arabic{section}.\arabic{equation}}\fi}
+% Чувствую себя 1337 TeX-программистом.
 
 
 \makeatletter
 \renewcommand\thesubsection{\ifnum\c@section=0{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi}
-\makeatother % Во "введениях" нумерация через В. 1, В. 2
+\makeatother % Во "введениях" нумерация подразделов через В. 1, В. 2
 
 
 % Команды оформления титульников
