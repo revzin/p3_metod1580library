@@ -31,8 +31,8 @@
 \usepackage{ccaption}
 
 %\usepackage[nooneline]{caption}
-\addto\captionsrussian{ \def\figurename{Рис.} } 
-\addto\captionsrussian{ \def\tablename{Таблица} } 
+\addto\captionsrussian{ \def\figurename{Рис.} }
+\addto\captionsrussian{ \def\tablename{Таблица} }
 \captiondelim{~---~}
 \captionstyle{\centering}
 \captionwidth{0.8\linewidth}
@@ -104,18 +104,22 @@
 % прочее
 
 \newcommand{\MTDWarn}[1]{
-\vspace{0.75cm} 
+\vspace{0.75cm}
 \noindent
 \begin{tabular}{ >{\centering\arraybackslash} m{0.1\textwidth} >{\centering\arraybackslash} m{0.85\textwidth} }
 \hline \hline
 \vphantom{\tiny 1}\ {\HUGE !}  & \normalsize \textbf{#1} \\
 \hline \hline
 \end{tabular}
-\vspace{0.75cm}\newline 
+\vspace{0.75cm}\newline
 }
 
+
 % среднее
-\newcommand{\MTDMean}[1]{\ensuremath{\left<#1\right}>}
+\newcommand{\MTDMean}[1]{\ensuremath{\hspace{-3pt}\left<#1\right}>\hspace{-3pt}}
+
+% единицы изм
+\newcommand{Units}[1]{\hspace{-3pt}[#1]}
 
 %Титульник
 \newcommand{\MTDTitlePage}{
@@ -175,5 +179,5 @@
 %\usepackage{dcolumn}
 %\newcolumntype{ctd}[1]{ > {\centering\arraybackslash} m{#1}}
 
-\graphicspath{ {../figures/} } 
+\graphicspath{ {../figures/} }
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
