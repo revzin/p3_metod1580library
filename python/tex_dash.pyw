@@ -46,7 +46,7 @@ def preprocess_sym(txt):
                 new_txt += '<<'
             else:
                 new_txt += '>>'
-        elif (txt[i] == '\u002d' or txt[i] == '\u2013' and
+        elif ((txt[i] == '\u002d' or txt[i] == '\u2013') and
             i != 0 and i != len(txt) - 1 and txt[i - 1] == ' ' and txt[i + 1] == ' '):
                 new_txt += '"---'
         elif txt[i] == '№': #textcomp package
