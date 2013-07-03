@@ -1,40 +1,40 @@
-% -*- coding: ACP -*-
+% -*-coding: utf-8 -*-
 
 \usepackage[russian]{babel}
+\usepackage[UTF8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 2cm, bottom = 2cm]{geometry}
 
 
-\usepackage{amstext} % Для формул
-\usepackage{amsmath} % Для формул
+\usepackage{amstext} % Р”Р»СЏ С„РѕСЂРјСѓР»
+\usepackage{amsmath} % Р”Р»СЏ С„РѕСЂРјСѓР»
 \usepackage{amssymb}
 
-\usepackage{enumitem} % Поменьше расстояния между itemами
+\usepackage{enumitem} % РџРѕРјРµРЅСЊС€Рµ СЂР°СЃСЃС‚РѕСЏРЅРёСЏ РјРµР¶РґСѓ itemР°РјРё
 \setlist[itemize]{noitemsep, nolistsep}
-% \setlist[enumerate]{noitemsep, nolistsep} % А оно надо?
+% \setlist[enumerate]{noitemsep, nolistsep} % Рђ РѕРЅРѕ РЅР°РґРѕ?
 
-\usepackage{icomma} % Десятичная запятая вместо точки
-\usepackage{graphicx} % Вставка рисунков
-\usepackage{url} % Внедрение ссылок в PDF
-\usepackage{dtklogos} % Разные логотипы (MiKTeX в частности)
+\usepackage{icomma} % Р”РµСЃСЏС‚РёС‡РЅР°СЏ Р·Р°РїСЏС‚Р°СЏ РІРјРµСЃС‚Рѕ С‚РѕС‡РєРё
+\usepackage{graphicx} % Р’СЃС‚Р°РІРєР° СЂРёСЃСѓРЅРєРѕРІ
+\usepackage{url} % Р’РЅРµРґСЂРµРЅРёРµ СЃСЃС‹Р»РѕРє РІ PDF
+\usepackage{dtklogos} % Р Р°Р·РЅС‹Рµ Р»РѕРіРѕС‚РёРїС‹ (MiKTeX РІ С‡Р°СЃС‚РЅРѕСЃС‚Рё)
 \usepackage{indentfirst}
-\usepackage{array} % Таблички
+\usepackage{array} % РўР°Р±Р»РёС‡РєРё
 
 
 \usepackage{textcomp}
 \usepackage{moresize}
 
 \usepackage{ccaption}
-% "Рис. 1. Бла-бла." -> "Рисунок 1 --- Бла-бла." ГОСТ
 
 %\usepackage[nooneline]{caption}
-\addto\captionsrussian{ \def\figurename{Рисунок} }
-\addto\captionsrussian{ \def\tablename{Таблица} }
+\addto\captionsrussian{ \def\figurename{Р РёСЃ.} } 
+\addto\captionsrussian{ \def\tablename{РўР°Р±Р»РёС†Р°} } 
 \captiondelim{~---~}
 %\captionstyle{\raggedright}
 \captionwidth{0.8\linewidth}
 
-%%% Убираем точки после цифр в заголовках
+%%% РЈР±РёСЂР°РµРј С‚РѕС‡РєРё РїРѕСЃР»Рµ С†РёС„СЂ РІ Р·Р°РіРѕР»РѕРІРєР°С…
 \def\russian@capsformat{%
   \def\postchapter{\@aftersepkern}%
   \def\postsection{\@aftersepkern}%
@@ -45,26 +45,31 @@
 }
 
 %\let\stdsection\section
-%\renewcommand\section{\newpage\stdsection} % Разделы с новых страниц
+%\renewcommand\section{\newpage\stdsection} % Р Р°Р·РґРµР»С‹ СЃ РЅРѕРІС‹С… СЃС‚СЂР°РЅРёС†
+
+
+%\numberwithin{equation}{section}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
 
 \makeatletter
-\renewcommand\thesubsection{\ifnum\c@section=0{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi}
-\makeatother % Во "введениях" нумерация через В. 1, В. 2
+\renewcommand\thesubsection{\ifnum\c@section=0{Р’.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi}
+\makeatother % Р’Рѕ "РІРІРµРґРµРЅРёСЏС…" РЅСѓРјРµСЂР°С†РёСЏ С‡РµСЂРµР· Р’. 1, Р’. 2
 
 
-% Команды оформления титульников
-\newcommand{\VMTDAuthors}{<Авторы/составители>}
-\newcommand{\VMTDEditorsGenetiveCase}{<Редакторы в родительном падеже>}
-\newcommand{\VMTDTeXguys}{<Верстали в род. падеже>}
+% РљРѕРјР°РЅРґС‹ РѕС„РѕСЂРјР»РµРЅРёСЏ С‚РёС‚СѓР»СЊРЅРёРєРѕРІ
+\newcommand{\VMTDAuthors}{<РђРІС‚РѕСЂС‹/СЃРѕСЃС‚Р°РІРёС‚РµР»Рё>}
+\newcommand{\VMTDEditorsGenetiveCase}{<Р РµРґР°РєС‚РѕСЂС‹ РІ СЂРѕРґРёС‚РµР»СЊРЅРѕРј РїР°РґРµР¶Рµ>}
 
-\newcommand{\VMTDLyceum}{Специализированный учебно-научный центр\\ Физико-математический лицей \textnumero 1580}
-\newcommand{\VMTDUni}{Московский государственный  технический университет имени~Н.~Э.~Баумана}
-\newcommand{\VMTDDept}{Кафедра <<Основы физики>>}
+\newcommand{\VMTDLyceum}{РЎРїРµС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅС‹Р№ СѓС‡РµР±РЅРѕ-РЅР°СѓС‡РЅС‹Р№ С†РµРЅС‚СЂ\\ Р¤РёР·РёРєРѕ-РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёР№ Р»РёС†РµР№ \textnumero 1580}
+\newcommand{\VMTDUni}{РњРѕСЃРєРѕРІСЃРєРёР№ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹Р№  С‚РµС…РЅРёС‡РµСЃРєРёР№ СѓРЅРёРІРµСЂСЃРёС‚РµС‚ РёРјРµРЅРё~Рќ.~Р­.~Р‘Р°СѓРјР°РЅР°}
+\newcommand{\VMTDDept}{РљР°С„РµРґСЂР° <<РћСЃРЅРѕРІС‹ С„РёР·РёРєРё>>}
 
-\newcommand{\VMTDGlobalName}{Лабораторный практикум по физике}
+\newcommand{\VMTDGlobalName}{Р›Р°Р±РѕСЂР°С‚РѕСЂРЅС‹Р№ РїСЂР°РєС‚РёРєСѓРј РїРѕ С„РёР·РёРєРµ}
 \newcommand{\VMTDPhysSection}{\MakeUppercase{MTDSetPhysSection}}
 \newcommand{\VMTDTitle}{MTDSetTitle}
-\newcommand{\VMTDGrade}{MTDSetGrade класс}
+\newcommand{\VMTDGrade}{MTDSetGrade РєР»Р°СЃСЃ}
 \newcommand{\VMTDLabDesignator}{MTDDesignator}
 
 
@@ -75,29 +80,28 @@
 
 \newcommand{\MTDSetTitle}[1]{\renewcommand{\VMTDTitle}{#1}}
 \newcommand{\MTDSetPhysSection}[1]{\renewcommand{\VMTDPhysSection}{\MakeUppercase{#1}}}
-\newcommand{\MTDSetGrade}[1]{\renewcommand{\VMTDGrade}{#1 класс}}
+\newcommand{\MTDSetGrade}[1]{\renewcommand{\VMTDGrade}{#1 РєР»Р°СЃСЃ}}
 \newcommand{\MTDDesignator}[1]{\renewcommand{\VMTDLabDesignator}{#1}}
-\newcommand{\MTDSetTeXguys}[1]{\renewcommand{\VMTDTeXguys}{#1}}
 
 
-% прочее
+% РїСЂРѕС‡РµРµ
 
 \newcommand{\MTDWarn}[1]{
-\vspace{0.75cm}
+\vspace{0.75cm} 
 \noindent
 \begin{tabular}{ >{\centering\arraybackslash} m{0.1\textwidth} >{\centering\arraybackslash} m{0.85\textwidth} }
 \hline \hline
 \vphantom{\tiny 1}\ {\HUGE !}  & \normalsize \textbf{#1} \\
 \hline \hline
 \end{tabular}
-\vspace{0.75cm}\newline
+\vspace{0.75cm}\newline 
 }
 
-% среднее
+% СЃСЂРµРґРЅРµРµ
 \newcommand{\MTDMean}[1]{\ensuremath{\left<#1\right}>}
 
 
-%Титульник
+%РўРёС‚СѓР»СЊРЅРёРє
 \newcommand{\MTDTitlePage}{
  \begin{titlepage}
  \begin{center}
@@ -106,12 +110,12 @@
   \vspace{0.5cm}
   \VMTDDept\\
   \vspace{3cm}
-  \LARGE \VMTDGlobalName \\ Электронное издание \\ \LARGE \VMTDGrade \\ \vspace{1.25cm}
+  \LARGE \VMTDGlobalName \\ Р­Р»РµРєС‚СЂРѕРЅРЅРѕРµ РёР·РґР°РЅРёРµ \\ \LARGE \VMTDGrade \\ \vspace{1.25cm}
   \Huge \VMTDPhysSection \\ \vspace{1.5cm} \
-  \LARGE Лабораторная работа \fbox{\VMTDLabDesignator} \\
+  \LARGE Р›Р°Р±РѕСЂР°С‚РѕСЂРЅР°СЏ СЂР°Р±РѕС‚Р° \fbox{\VMTDLabDesignator} \\
   \huge \VMTDTitle
   \vfill
-  \Large Москва, \VMTDYear
+  \Large РњРѕСЃРєРІР°, \VMTDYear
  \end{center}
  \newpage
 \end{titlepage}
@@ -126,27 +130,23 @@
     \indent\VMTDGlobalName. \VMTDPhysSection. --- \VMTDUni
     \vspace{0.5cm}
 
-    Лабораторный практикум по физике для 10 класса состоит из лабораторных
-    работ для занятий учащихся 10 классов в Специализированном учебно-научном
-    центре МГТУ имени Н.Э. Баумана.
-    Лабораторные работы, приведенные в сборнике, позволят учащимся глубже изучить
-    законы физики и получить навыки проведения экспериментальных физических исследований.
+    Р›Р°Р±РѕСЂР°С‚РѕСЂРЅС‹Р№ РїСЂР°РєС‚РёРєСѓРј РїРѕ С„РёР·РёРєРµ РґР»СЏ 10 РєР»Р°СЃСЃР° СЃРѕСЃС‚РѕРёС‚ РёР· Р»Р°Р±РѕСЂР°С‚РѕСЂРЅС‹С…
+    СЂР°Р±РѕС‚ РґР»СЏ Р·Р°РЅСЏС‚РёР№ СѓС‡Р°С‰РёС…СЃСЏ 10 РєР»Р°СЃСЃРѕРІ РІ РЎРїРµС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅРѕРј СѓС‡РµР±РЅРѕ-РЅР°СѓС‡РЅРѕРј
+    С†РµРЅС‚СЂРµ РњР“РўРЈ РёРјРµРЅРё Рќ.Р­. Р‘Р°СѓРјР°РЅР°.
+    Р›Р°Р±РѕСЂР°С‚РѕСЂРЅС‹Рµ СЂР°Р±РѕС‚С‹, РїСЂРёРІРµРґРµРЅРЅС‹Рµ РІ СЃР±РѕСЂРЅРёРєРµ, РїРѕР·РІРѕР»СЏС‚ СѓС‡Р°С‰РёРјСЃСЏ РіР»СѓР±Р¶Рµ РёР·СѓС‡РёС‚СЊ
+    Р·Р°РєРѕРЅС‹ С„РёР·РёРєРё Рё РїРѕР»СѓС‡РёС‚СЊ РЅР°РІС‹РєРё РїСЂРѕРІРµРґРµРЅРёСЏ СЌРєСЃРїРµСЂРёРјРµРЅС‚Р°Р»СЊРЅС‹С… С„РёР·РёС‡РµСЃРєРёС… РёСЃСЃР»РµРґРѕРІР°РЅРёР№.
 
    \vfill
    \centering
-   \noindent Составители лабораторных работ: \\
+   \noindent РЎРѕСЃС‚Р°РІРёС‚РµР»Рё Р»Р°Р±РѕСЂР°С‚РѕСЂРЅС‹С… СЂР°Р±РѕС‚: \\
    \begin{tabular}{>{\centering\arraybackslash} m{0.9\linewidth}}
    \hyphenpenalty = 10000
    \VMTDAuthors. \\
    \end{tabular}
    \vspace{1cm}
 
-   \noindent Под редакцией \VMTDEditorsGenetiveCase.
-   \vspace{2cm}
-
-   Электронное издание в системе \MiKTeX\ подготовили \\
-   \VMTDTeXguys.
-   \vspace{3cm}
+   \noindent РџРѕРґ СЂРµРґР°РєС†РёРµР№ \VMTDEditorsGenetiveCase.
+   \vspace{5cm}
  \end{adjustwidth}
    \newpage
 }
@@ -155,5 +155,5 @@
 
 
 
-\graphicspath{ {../figures/} }
+\graphicspath{ {../figures/} } 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
