@@ -21,9 +21,12 @@
 \usepackage{indentfirst}
 \usepackage{array} % Таблички
 
+\usepackage{multirow}
 
 \usepackage{textcomp}
 \usepackage{moresize}
+
+
 
 \usepackage{ccaption}
 
@@ -31,8 +34,10 @@
 \addto\captionsrussian{ \def\figurename{Рис.} } 
 \addto\captionsrussian{ \def\tablename{Таблица} } 
 \captiondelim{~---~}
-%\captionstyle{\raggedright}
+\captionstyle{\centering}
 \captionwidth{0.8\linewidth}
+\changecaptionwidth
+
 
 %%% Убираем точки после цифр в заголовках
 \def\russian@capsformat{%
@@ -54,9 +59,16 @@
 \usepackage{chngcntr}
 % Во введении (а введение - это section с номером 0) - формулы нумеруются так: (Вэ.N), дальше (M.N).
 \counterwithin{equation}{section} % Чтобы N сбрасывалась на смене section
+\counterwithin{table}{section} % Чтобы N сбрасывалась на смене section
+\counterwithin{figure}{section} % Чтобы N сбрасывалась на смене section
+
 \renewcommand{\theequation}{\ifnum\c@section=0{В.\arabic{equation}}\else{\arabic{section}.\arabic{equation}}\fi}
 % Чувствую себя 1337 TeX-программистом.
 
+% Таблицы
+\renewcommand{\thetable}{\ifnum\c@section=0{В.\arabic{table}}\else{\arabic{section}.\arabic{table}}\fi}
+% Картинки
+\renewcommand{\thefigure}{\ifnum\c@section=0{В.\arabic{figure}}\else{\arabic{section}.\arabic{figure}}\fi}
 
 \makeatletter
 \renewcommand\thesubsection{\ifnum\c@section=0{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi}
@@ -104,7 +116,6 @@
 
 % среднее
 \newcommand{\MTDMean}[1]{\ensuremath{\left<#1\right}>}
-
 
 %Титульник
 \newcommand{\MTDTitlePage}{
@@ -158,7 +169,11 @@
 
 \renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
 
+\renewcommand{\epsilon}{\varepsilon} % Всё равно первый очень уродливый никому не нужен.
 
+% Цетрированные ячейки по V и H
+%\usepackage{dcolumn}
+%\newcolumntype{ctd}[1]{ > {\centering\arraybackslash} m{#1}}
 
 \graphicspath{ {../figures/} } 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
