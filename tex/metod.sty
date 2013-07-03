@@ -1,32 +1,36 @@
-% -*- coding: ACP -*- 
+% -*- coding: ACP -*-
 
-\usepackage[russian]{babel} 
-\usepackage[T2A]{fontenc} 
-\usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 2cm, bottom = 2cm]{geometry} 
+\usepackage[russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 2cm, bottom = 2cm]{geometry}
 
 
-\usepackage{amstext} % Для формул 
-\usepackage{amsmath} % Для формул 
+\usepackage{amstext} % Для формул
+\usepackage{amsmath} % Для формул
 \usepackage{amssymb}
 
-\usepackage{icomma} % Десятичная запятая вместо точки 
-\usepackage{graphicx} % Вставка рисунков 
+\usepackage{enumitem} % Поменьше расстояния между itemами
+\setlist[itemize]{noitemsep, nolistsep}
+% \setlist[enumerate]{noitemsep, nolistsep} % А оно надо?
+
+\usepackage{icomma} % Десятичная запятая вместо точки
+\usepackage{graphicx} % Вставка рисунков
 \usepackage{url} % Внедрение ссылок в PDF
-\usepackage{dtklogos} % Разные логотипы (MiKTeX в частности) 
+\usepackage{dtklogos} % Разные логотипы (MiKTeX в частности)
 \usepackage{indentfirst}
 \usepackage{array} % Таблички
- 
+
 
 \usepackage{textcomp}
 \usepackage{moresize}
 
-\usepackage{ccaption} 
-% "Рис. 1. Бла-бла." -> "Рисунок 1 --- Бла-бла." ГОСТ 
+\usepackage{ccaption}
+% "Рис. 1. Бла-бла." -> "Рисунок 1 --- Бла-бла." ГОСТ
 
 %\usepackage[nooneline]{caption}
 \addto\captionsrussian{ \def\figurename{Рисунок} }
-\addto\captionsrussian{ \def\tablename{Таблица} } 
-\captiondelim{~---~} 
+\addto\captionsrussian{ \def\tablename{Таблица} }
+\captiondelim{~---~}
 %\captionstyle{\raggedright}
 \captionwidth{0.8\linewidth}
 
@@ -48,7 +52,7 @@
 \makeatother % Во "введениях" нумерация через В. 1, В. 2
 
 
-% Команды оформления титульников 
+% Команды оформления титульников
 \newcommand{\VMTDAuthors}{<Авторы/составители>}
 \newcommand{\VMTDEditorsGenetiveCase}{<Редакторы в родительном падеже>}
 \newcommand{\VMTDTeXguys}{<Верстали в род. падеже>}
@@ -59,7 +63,7 @@
 
 \newcommand{\VMTDGlobalName}{Лабораторный практикум по физике}
 \newcommand{\VMTDPhysSection}{\MakeUppercase{MTDSetPhysSection}}
-\newcommand{\VMTDTitle}{MTDSetTitle} 
+\newcommand{\VMTDTitle}{MTDSetTitle}
 \newcommand{\VMTDGrade}{MTDSetGrade класс}
 \newcommand{\VMTDLabDesignator}{MTDDesignator}
 
@@ -97,9 +101,9 @@
 \newcommand{\MTDTitlePage}{
  \begin{titlepage}
  \begin{center}
-  \large \VMTDUni \\ \vspace{0.5cm} 
-  \VMTDLyceum \\ 
-  \vspace{0.5cm} 
+  \large \VMTDUni \\ \vspace{0.5cm}
+  \VMTDLyceum \\
+  \vspace{0.5cm}
   \VMTDDept\\
   \vspace{3cm}
   \LARGE \VMTDGlobalName \\ Электронное издание \\ \LARGE \VMTDGrade \\ \vspace{1.25cm}
@@ -118,16 +122,16 @@
   \begin{adjustwidth}{2cm}{2cm}
     \phantom{1}
     \vspace{8cm}
-  
+
     \indent\VMTDGlobalName. \VMTDPhysSection. --- \VMTDUni
     \vspace{0.5cm}
-    
-    Лабораторный практикум по физике для 10 класса состоит из лабораторных 
-    работ для занятий учащихся 10 классов в Специализированном учебно-научном 
+
+    Лабораторный практикум по физике для 10 класса состоит из лабораторных
+    работ для занятий учащихся 10 классов в Специализированном учебно-научном
     центре МГТУ имени Н.Э. Баумана.
-    Лабораторные работы, приведенные в сборнике, позволят учащимся глубже изучить 
+    Лабораторные работы, приведенные в сборнике, позволят учащимся глубже изучить
     законы физики и получить навыки проведения экспериментальных физических исследований.
-   
+
    \vfill
    \centering
    \noindent Составители лабораторных работ: \\
@@ -136,14 +140,14 @@
    \VMTDAuthors. \\
    \end{tabular}
    \vspace{1cm}
-   
+
    \noindent Под редакцией \VMTDEditorsGenetiveCase.
    \vspace{2cm}
-   
+
    Электронное издание в системе \MiKTeX\ подготовили \\
    \VMTDTeXguys.
    \vspace{3cm}
- \end{adjustwidth} 
+ \end{adjustwidth}
    \newpage
 }
 
@@ -153,5 +157,3 @@
 
 \graphicspath{ {../figures/} }
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
-
-
