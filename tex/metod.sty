@@ -115,6 +115,7 @@
 
 % прочее
 
+% кидание красивых ворнингов
 \newcommand{\MTDWarn}[1]{
 \vspace{0.75cm}
 \noindent
@@ -130,10 +131,10 @@
 % среднее
 \newcommand{\MTDMean}[1]{\ensuremath{\hspace{-3pt}\left<#1\right}>\hspace{-3pt}}
 
-% единицы изм
+% единицы измерения
 \newcommand{\Units}[1]{\hspace{-3pt}#1}
 
-%Титульник
+% Титульник
 \newcommand{\MTDTitlePage}{
  \thispagestyle{empty} % Почему-то titlepage
  \begin{center}        % не считается в счёттике страниц???
@@ -152,7 +153,9 @@
  \newpage
 }
 
-\usepackage[strict]{changepage}
+
+% аннотация/первый форзац
+\usepackage[strict]{changepage} % Черт, а что он делает? Зачем я его включил? D:
 \newcommand{\MTDInfoPage}{
  \thispagestyle{empty}
   \begin{adjustwidth}{2cm}{2cm}
@@ -211,3 +214,4 @@
 \chead{\emph{\rightmark}}
 \rhead{\thepage}
 \cfoot{}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
