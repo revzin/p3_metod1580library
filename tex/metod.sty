@@ -3,7 +3,7 @@
 \usepackage[russian]{babel}
 \usepackage[UTF8]{inputenc}
 \usepackage[T2A]{fontenc}
-\usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 2cm, bottom = 2cm]{geometry}
+\usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 2cm, bottom = 4cm]{geometry}
 
 
 \usepackage{amstext} % Для формул
@@ -119,12 +119,12 @@
 \newcommand{\MTDMean}[1]{\ensuremath{\hspace{-3pt}\left<#1\right}>\hspace{-3pt}}
 
 % единицы изм
-\newcommand{Units}[1]{\hspace{-3pt}[#1]}
+\newcommand{\Units}[1]{\hspace{-3pt}#1}
 
 %Титульник
 \newcommand{\MTDTitlePage}{
- \begin{titlepage}
- \begin{center}
+ \thispagestyle{empty} % Почему-то titlepage
+ \begin{center}        % не считается в счёттике страниц???
   \large \VMTDUni \\ \vspace{0.5cm}
   \VMTDLyceum \\
   \vspace{0.5cm}
@@ -138,21 +138,21 @@
   \Large Москва, \VMTDYear
  \end{center}
  \newpage
-\end{titlepage}
 }
 
 \usepackage[strict]{changepage}
 \newcommand{\MTDInfoPage}{
+ \thispagestyle{empty}
   \begin{adjustwidth}{2cm}{2cm}
     \phantom{1}
     \vspace{8cm}
-
-    \indent\VMTDGlobalName. \VMTDPhysSection. --- \VMTDUni
+    \textbf{\hspace{0.3cm} \VMTDGlobalName. \VMTDPhysSection. --- \VMTDUni}
     \vspace{0.5cm}
-
+    
     Лабораторный практикум по физике для 10 класса состоит из лабораторных
     работ для занятий учащихся 10 классов в Специализированном учебно-научном
-    центре МГТУ имени Н.Э. Баумана.
+    центре МГТУ имени Н.~Э.~Баумана.
+
     Лабораторные работы, приведенные в сборнике, позволят учащимся глубже изучить
     законы физики и получить навыки проведения экспериментальных физических исследований.
 
@@ -167,17 +167,20 @@
 
    \noindent Под редакцией \VMTDEditorsGenetiveCase.
    \vspace{5cm}
- \end{adjustwidth}
-   \newpage
+  \end{adjustwidth}
+ \newpage
 }
 
 \renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
 
-\renewcommand{\epsilon}{\varepsilon} % Всё равно первый очень уродливый никому не нужен.
+\renewcommand{\epsilon}{\varepsilon} % Всё равно первый очень уродливый и никому не нужен.
 
 % Цетрированные ячейки по V и H
 %\usepackage{dcolumn}
 %\newcolumntype{ctd}[1]{ > {\centering\arraybackslash} m{#1}}
+% пока у меня не получается заставить их работать --- пока не жмёт,
+% пусть будут закомменченными - Г
 
 \graphicspath{ {../figures/} }
-\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\DeclareGraphicsExtensions{.pdf, .png, .jpg}
+%
