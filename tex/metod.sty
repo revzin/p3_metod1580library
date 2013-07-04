@@ -3,7 +3,7 @@
 \usepackage[russian]{babel}
 \usepackage[UTF8]{inputenc}
 \usepackage[T2A]{fontenc}
-\usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 2cm, bottom = 4cm]{geometry}
+\usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 2cm, bottom = 2cm]{geometry}
 
 
 \usepackage{amstext} % Для формул
@@ -148,7 +148,7 @@
     \vspace{8cm}
     \textbf{\hspace{0.3cm} \VMTDGlobalName. \VMTDPhysSection. --- \VMTDUni}
     \vspace{0.5cm}
-    
+
     Лабораторный практикум по физике для 10 класса состоит из лабораторных
     работ для занятий учащихся 10 классов в Специализированном учебно-научном
     центре МГТУ имени Н.~Э.~Баумана.
@@ -184,3 +184,9 @@
 \graphicspath{ {../figures/} }
 \DeclareGraphicsExtensions{.pdf, .png, .jpg}
 %
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\rightmark}
+\rhead{\thepage}
+\cfoot{}
