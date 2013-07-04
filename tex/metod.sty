@@ -3,7 +3,7 @@
 \usepackage[russian]{babel}
 \usepackage[UTF8]{inputenc}
 \usepackage[T2A]{fontenc}
-\usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 2cm, bottom = 2cm]{geometry}
+\usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 3cm, bottom = 2cm]{geometry}
 
 
 \usepackage{amstext} % Для формул
@@ -11,7 +11,7 @@
 \usepackage{amssymb}
 
 \usepackage{enumitem} % Поменьше расстояния между itemами
-\setlist[itemize]{noitemsep, nolistsep}
+\setlist[itemize]{noitemsep}
 % \setlist[enumerate]{noitemsep, nolistsep} % А оно надо?
 
 \usepackage{icomma} % Десятичная запятая вместо точки
@@ -31,8 +31,9 @@
 \usepackage{ccaption}
 
 %\usepackage[nooneline]{caption}
-\addto\captionsrussian{ \def\figurename{Рис.} }
-\addto\captionsrussian{ \def\tablename{Таблица} }
+\addto\captionsrussian{ \def\figurename{Рис.} } % Дина - ГОСТ: 1 - 0
+\addto\captionsrussian{ \def\tablename{Таблица} } % Но в остальном ГОСТ
+                                                  % вяло обороняется
 \captiondelim{~---~}
 \captionstyle{\centering}
 \captionwidth{0.8\linewidth}
@@ -80,6 +81,7 @@
 \newcommand{\VMTDEditorsGenetiveCase}{<Редакторы в родительном падеже>}
 
 \newcommand{\VMTDLyceum}{Специализированный учебно-научный центр\\ Физико-математический лицей \textnumero 1580}
+\newcommand{\VMTDLyceumS}{Физико-математический лицей \textnumero 1580}
 \newcommand{\VMTDUni}{Московский государственный  технический университет имени~Н.~Э.~Баумана}
 \newcommand{\VMTDDept}{Кафедра <<Основы физики>>}
 
@@ -146,7 +148,7 @@
   \begin{adjustwidth}{2cm}{2cm}
     \phantom{1}
     \vspace{8cm}
-    \textbf{\hspace{0.3cm} \VMTDGlobalName. \VMTDPhysSection. --- \VMTDUni}
+    \MakeUppercase{\hspace{0.3cm} \VMTDGlobalName. \VMTDPhysSection.} --- \VMTDUni
     \vspace{0.5cm}
 
     Лабораторный практикум по физике для 10 класса состоит из лабораторных
@@ -166,7 +168,14 @@
    \vspace{1cm}
 
    \noindent Под редакцией \VMTDEditorsGenetiveCase.
+
    \vspace{5cm}
+   \raggedleft
+   \begin{tabular}{p{0.3cm}p{12cm}}
+   \hyphenpenalty = 10000
+   \textcopyright\ & \VMTDUni, 2013        \\
+   \textcopyright\ & \VMTDLyceumS, 2013      \\
+   \end{tabular}
   \end{adjustwidth}
  \newpage
 }
@@ -187,6 +196,7 @@
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{\rightmark}
+\lhead{}
+\chead{\emph{\rightmark}}
 \rhead{\thepage}
 \cfoot{}
