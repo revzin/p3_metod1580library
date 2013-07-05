@@ -79,9 +79,7 @@
 % Картинки
 \renewcommand{\thefigure}{\ifnum\c@section=0{В.\arabic{figure}}\else{\arabic{section}.\arabic{figure}}\fi}
 
-\makeatletter
-\renewcommand\thesubsection{\ifnum\c@section=0{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi}
-\makeatother % Во "введениях" нумерация подразделов через В. 1, В. 2
+\renewcommand\thesubsection{\ifnum\c@section=0{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi} % Во "введениях" нумерация подразделов через В. 1, В. 2
 
 
 % Команды оформления титульников
@@ -130,7 +128,7 @@
 \newcommand{\MTDMean}[1]{\ensuremath{\hspace{-3pt}\left<#1\right}>\hspace{-3pt}}
 
 % единицы измерения
-\newcommand{\Units}[1]{\hspace{-1.25pt}#1} % очень точно
+\newcommand{\Units}[1]{\hspace{-1pt}#1} % очень точно
 
 % Титульник
 \newcommand{\MTDTitlePage}{
