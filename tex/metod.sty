@@ -39,10 +39,17 @@
 
 \usepackage{ccaption}
 %\usepackage[nooneline]{caption}
-\addto\captionsrussian{ \def\figurename{Рис.} }   % Дина - ГОСТ: 1 - 0
-\addto\captionsrussian{ \def\tablename{Таблица} } % Но в остальном ГОСТ
-                                                  % вяло обороняется
-\captiondelim{~---~}
+\addto\captionsrussian{ \def\figurename{Рис.} }   % Дина - ГОСТ: 3 - 0
+\addto\captionsrussian{ \def\tablename{Таблица} } % ГОСТ истекает кровью,
+                                                  % потому что у девочек
+                                                  % чувство прекрасного
+                                                  % больше, чем у Росстандарта.
+                                                  % Боюсь, ожидать от него
+                                                  % ответного удара по системе
+                                                  % Рокки (пропустил-пропустил-
+                                                  % пропустил...-ПОБЕДИЛ)
+                                                  % ожидать не стоит.
+\captiondelim{.~}                                 % Нокаут.
 \captionstyle{\centering}
 \captionwidth{0.8\linewidth}
 \changecaptionwidth
