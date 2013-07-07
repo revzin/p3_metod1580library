@@ -66,20 +66,23 @@
 
 
 \usepackage{chngcntr}
-% Во введении (а введение - это section с номером 0) - формулы нумеруются так: (Вэ.N), дальше (M.N).
+% Во введении (а введение - это section с номером -1) - формулы нумеруются так: (Вэ.N), дальше (M.N).
 \counterwithin{equation}{section} % Чтобы N сбрасывалась на смене section
 \counterwithin{table}{section} % Чтобы N сбрасывалась на смене section
 \counterwithin{figure}{section} % Чтобы N сбрасывалась на смене section
 
-\renewcommand{\theequation}{\ifnum\c@section=0{В.\arabic{equation}}\else{\arabic{section}.\arabic{equation}}\fi}
+% Пришлось сменить на -1, потому что эти ребята брутальные,
+% и у них есть не только введение, но и нулевая лабораторная работа
+
+\renewcommand{\theequation}{\ifnum\c@section=-1{В.\arabic{equation}}\else{\arabic{section}.\arabic{equation}}\fi}
 % Чувствую себя 1337 TeX-программистом.
 
 % Таблицы
-\renewcommand{\thetable}{\ifnum\c@section=0{В.\arabic{table}}\else{\arabic{section}.\arabic{table}}\fi}
+\renewcommand{\thetable}{\ifnum\c@section=-1{В.\arabic{table}}\else{\arabic{section}.\arabic{table}}\fi}
 % Картинки
-\renewcommand{\thefigure}{\ifnum\c@section=0{В.\arabic{figure}}\else{\arabic{section}.\arabic{figure}}\fi}
+\renewcommand{\thefigure}{\ifnum\c@section=-1{В.\arabic{figure}}\else{\arabic{section}.\arabic{figure}}\fi}
 
-\renewcommand\thesubsection{\ifnum\c@section=0{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi} % Во "введениях" нумерация подразделов через В. 1, В. 2
+\renewcommand\thesubsection{\ifnum\c@section=-1{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi} % Во "введениях" нумерация подразделов через В. 1, В. 2
 
 
 % Команды оформления титульников
