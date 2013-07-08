@@ -5,6 +5,7 @@
 \usepackage[T2A]{fontenc}
 \usepackage[paper = a4paper, left = 2cm, right = 2cm, top = 3cm, bottom = 2cm]{geometry}
 
+
 % расстояния между номером и названием раздела
 \usepackage{titlesec}
 \titleformat{\section}
@@ -77,6 +78,7 @@
 \counterwithin{equation}{section} % Чтобы N сбрасывалась на смене section
 \counterwithin{table}{section} % Чтобы N сбрасывалась на смене section
 \counterwithin{figure}{section} % Чтобы N сбрасывалась на смене section
+
 
 % Пришлось сменить на -1, потому что эти ребята брутальные,
 % и у них есть не только введение, но и нулевая лабораторная работа
@@ -230,3 +232,6 @@
 % сабсекшн выглядит в
 % колонтитуле
 % Видимо, там как-то так
+
+
+\usepackage{float}
