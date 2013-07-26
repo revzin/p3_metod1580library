@@ -123,6 +123,17 @@
 
 % прочее
 
+% задание
+\newcounter{MTDTaskCounter}
+\setcounter{MTDTaskCounter}{1}
+\counterwithin{MTDTaskCounter}{section}
+\newcommand{\MTDTask}[1]{
+
+\textbf{Задание~\arabic{MTDTaskCounter}.}\ \ \emph{#1} \newline
+\addtocounter{MTDTaskCounter}{1}
+}
+
+
 % кидание красивых ворнингов
 \newcommand{\MTDWarn}[1]{
 \vspace{0.75cm}
@@ -145,6 +156,7 @@
 \newcommand{\const}{\ensuremath{\textrm{const}}}
 
 \newcommand{\degree}{\ensuremath{\vphantom{\text{гы}}^{\circ}}}
+
 
 
 % Титульник
