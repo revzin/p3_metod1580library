@@ -158,7 +158,7 @@ x = X_{\text{наил}} \pm \delta \quad \left(P = \alpha\right).
 При измерениях физических величин в случаях, когда основную роль играют случайные погрешности, все оценки точности можно сделать с некоторой вероятностью. В большинстве случаев, с которыми приходится сталкиваться на практике, случайные погрешности возникают как результат действия множества независимых факторов, каждый из которых сравнительно слабо влияет на результат измерений. В этих случаях случайные погрешности подчиняются определенному закону распределения по значениям "--- нормальному, или гауссовскому, закону. Для такого класса погрешностей является верным (это строго доказывается в теории вероятностей) следующее положение: наилучшей оценкой (наиболее вероятным значением) измеряемой величины является среднее арифметическое значение, вычисленное из ряда измеренных значений:
 \begin{equation}
 \label{eq:mean-value}
-X_{\text{наил}} = \MTDMean{x} = \frac{x_1 + x_2 + ... + x_n}{n} = \frac{\nisum x_i}{n},
+X_{\text{наил}} = \MTDMean{x} = \frac{x_1 + x_2 + ... + x_n}{n} = \frac{\isum x_i}{n},
 \end{equation}
 где $n$ "--- число измерений.
 
@@ -167,7 +167,7 @@ X_{\text{наил}} = \MTDMean{x} = \frac{x_1 + x_2 + ... + x_n}{n} = \frac{\nis
 Мы можем осуществить лишь конечное число измерений, поэтому никогда не достигаем истинного значения измеряемой величины. Для оценки погрешности измерений используют величину, называемую средним квадратичным отклонением:
 \begin{equation}
 \label{eq:stdq-div}
-\sigma = \sqrt{\frac{\nisum \left(\MTDMean{x} - x_i\right)^2}{n}} = \sqrt{\frac{\nisum \left(\Delta x_i \right)^2}{n}}.
+\sigma = \sqrt{\frac{\isum \left(\MTDMean{x} - x_i\right)^2}{n}} = \sqrt{\frac{\isum \left(\Delta x_i \right)^2}{n}}.
 \end{equation}
 
 Для нормального распределения случайных погрешностей доверительная вероятность попадания единичного измерения в доверительный интервал полушириной $\sigma$ составляет 68,2\%, полушириной $2\sigma$ "--- 95,4\%, полушириной $3\sigma$ "--- 99,7\% (это следует из теории вероятностей). % ИЗМ пояснил чуть-чуть
@@ -176,7 +176,7 @@ X_{\text{наил}} = \MTDMean{x} = \frac{x_1 + x_2 + ... + x_n}{n} = \frac{\nis
 
 \begin{equation}
 \label{eq:mean-error}
-\Delta S = \sqrt{\frac{\nisum \left(\Delta x_i \right)^2}{n (n - 1)}},
+\Delta S = \sqrt{\frac{\isum \left(\Delta x_i \right)^2}{n (n - 1)}},
 \end{equation}
 причём это утверждение тем более справедливо, чем больше $n$.
 % ИЗМ: добавил "причем"
@@ -283,7 +283,7 @@ z = &\ ab, \\
 \begin{align} \label{eq:div-error}
 \begin{split}
 z = &\ \frac{a}{b}, \\
-\Delta z =&\  \sqrt{\left(\frac{\Delta a}{b}\right)^2 + \left(\frac{\MTDMean{\Delta a} \Delta b}{\MTDMean{b}^2} \right)^2}, \\
+\Delta z =&\  \sqrt{\left(\frac{\Delta a}{b}\right)^2 + \left(\frac{\MTDMean{a} \Delta b}{\MTDMean{b}^2} \right)^2}, \\
 \eps_{z} =&\ \sqrt{\eps_a^2 + \eps_b^2}.
 \end{split}
 \end{align}
@@ -297,8 +297,8 @@ z = &\ \frac{a}{b}, \\
 \begin{align} \label{eq:pow-error}
 \begin{split}
 z =&\  a^n \\
-\Delta z =&\  \sqrt{n} a^{n - 1}\Delta a \\
-\eps_z =&\  \sqrt{n}\eps_a
+\Delta z =&\  n a^{n - 1}\Delta a \\
+\eps_z =&\  n\eps_a
 \end{split}
 \end{align}
 
@@ -445,6 +445,20 @@ $I$, мкА & 0 & 0,35 & 0,55 & 1,2 & 2,0 & 3,2 & 4,1 \\ \hline
 
 Если длина измеряется с погрешностью до долей миллиметра, то пользуются вспомогательной шкалой измерительного инструмента "--- нониусом. В инструменте, называемом штангенциркулем, используется нониус, имеющий 10~делений, цена деления равна 0,1~\Units{мм}.
 
+\begin{figure}[h] %в этой и следующей парах картинок  правая картинка слишком низко, хорошо бы по центру. а еще в этой картинке слишком большая шкала и слишком маленький сам штангенциркуль. вряд ли можно что-то сделать, пока они не станут по центру
+\centering
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width = \textwidth, keepaspectratio=true]{Intro-Caliper}
+  \caption{Штангенциркуль \label{fig:mzero-caliper}}
+\end{minipage} \hfill
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width = \textwidth, keepaspectratio=true]{Intro-CaliperVernier}
+  \caption{Нониусная шкала \label{fig:mzero-vernier-scale}}
+\end{minipage}
+\end{figure}
+
 Штангенциркуль (рис.~\ref{fig:mzero-caliper}) состоит из миллиметровой линейки~\emph{1}, с одной стороны которой имеется неподвижная ножка~\emph{2}.
 
 Вторая (подвижная) ножка~\emph{3} имеет нониус~\emph{4}. % ИЗМ: "и" - видимо, опечатка, поменяла на точку.
@@ -454,20 +468,20 @@ $I$, мкА & 0 & 0,35 & 0,55 & 1,2 & 2,0 & 3,2 & 4,1 \\ \hline
 Выступающие части ножек~\emph{7}~и~\emph{8} служат для измерения диаметров канавок и разнообразных углублений. На рис.~\ref{fig:mzero-vernier-scale} в увеличенном виде показаны две шкалы штангенциркуля. Сверху изображена шкала масштабной линейки,  снизу "--- шкала нониуса. Определим показания этих шкал.
 
 
-\begin{figure}[ht]
- \begin{center}
-  \includegraphics[width = 0.65\textwidth, keepaspectratio=true]{Intro-Caliper}
-  \caption{Штангенциркуль \label{fig:mzero-caliper}}
- \end{center}
-\end{figure}
-
-
-\begin{figure}[h]
- \begin{center}
-  \includegraphics[width = 0.5\textwidth, keepaspectratio=true]{Intro-CaliperVernier}
-  \caption{Нониусная шкала \label{fig:mzero-vernier-scale}}
- \end{center}
-\end{figure}
+%\begin{figure}[ht]
+% \begin{center}
+%  \includegraphics[width = 0.65\textwidth, keepaspectratio=true]{Intro-Caliper}
+%  \caption{Штангенциркуль \label{fig:mzero-caliper}}
+% \end{center}
+%\end{figure}
+%
+%
+%\begin{figure}[h]
+% \begin{center}
+%  \includegraphics[width = 0.5\textwidth, keepaspectratio=true]{Intro-CaliperVernier}
+%  \caption{Нониусная шкала \label{fig:mzero-vernier-scale}}
+% \end{center}
+%\end{figure}
 
 
 %ИЗМ: добавил "измеряемой"
@@ -490,23 +504,36 @@ $\mu$ "--- число, показывающее тот номер деления
 
 \textbf{Микрометр.}
 
-\begin{wrapfigure}{r}{0.6\textwidth}
- \centering
-  \includegraphics[width = 0.4\textwidth, keepaspectratio=true]{Intro-MuCaliper}
- \caption{Микрометр \label{fig:mzero-mu-caliper}}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{0.6\textwidth}
+% \centering
+%  \includegraphics[width = 0.4\textwidth, keepaspectratio=true]{Intro-MuCaliper}
+% \caption{Микрометр \label{fig:mzero-mu-caliper}}
+%\end{wrapfigure}
 
 Для измерения с большей точностью (до сотых долей миллиметра) применяют инструмент, называемый микрометром. Микрометр (рис.~\ref{fig:mzero-mu-caliper}) состоит из двух частей: скобы~\emph{1} и микрометрического винта~\emph{2}, который проходит через отверстие скобы~\emph{1} с внутренней резьбой. Против микрометрического винта на скобе имеется упор~\emph{3}. На этом винте закреплен полый цилиндр (барабан)~\emph{4} с делениями по окружности. При вращении микрометрического винта барабан скользит по линейной шкале, нанесенной на стебле~\emph{5}.
 
+\begin{figure}[h]
+\centering
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+ \includegraphics[width = \textwidth, keepaspectratio=true]{Intro-MuCaliper}
+ \caption{Микрометр \label{fig:mzero-mu-caliper}}
+\end{minipage} \hfill
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+  \includegraphics[width = \textwidth, keepaspectratio=true]{Intro-MuCaliperVernier}
+  \caption{Нониусная шкала микрометра\label{fig:mzero-mu-caliper-vernier}}
+\end{minipage}
+\end{figure}
 
 Во время измерения предмет помещают между упором~\emph{3} и винтом~\emph{2} и вращают винт до тех пор, пока измеряемый предмет не будет зажат между упором~\emph{3} и концом винта~\emph{2}.
 
-\begin{figure}[h!]
- \begin{center}
-  \includegraphics[width = 0.5\textwidth, keepaspectratio=true]{Intro-MuCaliperVernier}
-  \caption{Нониусная шкала микрометра\label{fig:mzero-mu-caliper-vernier}}
- \end{center}
-\end{figure}
+%\begin{figure}[h!]
+% \begin{center}
+%  \includegraphics[width = 0.5\textwidth, keepaspectratio=true]{Intro-MuCaliperVernier}
+%  \caption{Нониусная шкала микрометра\label{fig:mzero-mu-caliper-vernier}}
+% \end{center}
+%\end{figure}
 
 
 Измеряемая деталь должна зажиматься микрометром с определенным усилием, дозволенным техническими нормами эксплуатации. С этой целью при зажиме детали необходимо вращать не барабан~\emph{4}, а головку~\emph{6}, называемую трещоткой. В тот момент, когда сжимающее усилие достигнет  нормы, дальнейшее вращение головки будет сопровождаться звуком трещотки,  означающим, что микрометрический винт больше не вращается. В это время шкалы микрометра показывают размер детали.
