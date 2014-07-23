@@ -98,7 +98,9 @@
 % Картинки
 \renewcommand{\thefigure}{\ifnum\c@section=-1{В.\arabic{figure}}\else{\arabic{section}.\arabic{figure}}\fi}
 
-\renewcommand\thesubsection{\ifnum\c@section=-1{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi} % Во "введениях" нумерация подразделов через В. 1, В. 2
+\renewcommand\thesubsection{\ifnum\c@subsection=-2{\arabic{section}.П}\else\ifnum\c@section=-1{В.\arabic{subsection}}\else{\arabic{section}.\arabic{subsection}}\fi\fi}
+% Во "введениях" нумерация подразделов через В. 1, В. 2, сверх того, мы теперь ещё умеем Приложения; но не Приложения во Введениях, хотя это из разряда того,
+% что мне обычно снится.
 
 
 % Команды оформления титульников
